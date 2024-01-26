@@ -5,6 +5,7 @@ import connectDB from "./config/db.js";
 import teacherRoute from "./routes/teacherRoute.js";
 import classRoute from "./routes/classRoute.js";
 import subjectRoute from "./routes/subjectRoute.js";
+import routineRoute from "./routes/routine.js";
 
 import cors from "cors";
 // configure env
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use("/api/v1/teacher", teacherRoute);
 app.use("/api/v1/class", classRoute);
 app.use("/api/v1/subject", subjectRoute);
+app.use("/api/v1/routine", routineRoute);
 
 // rest api
 app.get("/", (req, res) => {
