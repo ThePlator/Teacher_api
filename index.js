@@ -3,6 +3,7 @@ import colors from "colors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import teacherRoute from "./routes/teacherRoute.js";
+import classRoute from "./routes/classRoute.js";
 
 import cors from "cors";
 // configure env
@@ -18,10 +19,11 @@ app.use(express.json());
 
 // routes
 app.use("/api/v1/teacher", teacherRoute);
+app.use("/api/v1/class", classRoute);
 
 // rest api
 app.get("/", (req, res) => {
-  res.send(`<h1>welcome pce purnea</h1>`);
+  res.send(`<h1>welcome to pce purnea</h1>`);
 });
 
 // RUN LISTEN
