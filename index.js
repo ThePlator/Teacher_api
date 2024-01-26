@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import teacherRoute from "./routes/teacherRoute.js";
 import classRoute from "./routes/classRoute.js";
+import subjectRoute from "./routes/subjectRoute.js";
 
 import cors from "cors";
 // configure env
@@ -20,6 +21,7 @@ app.use(express.json());
 // routes
 app.use("/api/v1/teacher", teacherRoute);
 app.use("/api/v1/class", classRoute);
+app.use("/api/v1/subject", subjectRoute);
 
 // rest api
 app.get("/", (req, res) => {
