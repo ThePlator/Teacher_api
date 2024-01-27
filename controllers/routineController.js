@@ -134,3 +134,33 @@ export const deleteRoutineController = async (req, res) => {
     });
   }
 };
+
+export const getRoutineBranchWiseController = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const routines = await routineModel
+      .find({ classes: id })
+      .populate("subject");
+
+    if (!routines || routines.length === 0) {
+      return res.status(404).send({
+        success: false,
+        message: "No routines found for the provided class ID",
+      });
+    }
+
+    res.status(200).send({
+      success: true,
+      message: "Routines fetched successfully",
+      routines,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({
+      success: false,
+      message: "Error while getting routines by class ID",
+      error: error.message,
+    });
+  }
+};
